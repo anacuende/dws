@@ -13,7 +13,7 @@
 			echo '<tr><th>ID</th><th>Nombre</th><th>Foto</th><th>Autor</th><th>Álbum</th></tr>';
 			while ($row = mysqli_fetch_array($result)) {
 				echo '<tr>';
-				echo '<td><a href="/detail.php?id="'.$row['id'].'">id</a></td>';
+				echo '<td><a href="/detail.php?id='.$row[id].'">'.$row['id'].'</a></td>';
 				echo '<td>'.$row['nombre'].'</td>';
 				echo '<td><img src="'.$row['url_imagen'].'" width="100" height="100"></td>';
 				echo '<td>'.$row['autor'].'</td>';
