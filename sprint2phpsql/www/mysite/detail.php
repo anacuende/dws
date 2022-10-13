@@ -23,10 +23,7 @@
 				$query2 = 'SELECT * FROM tComentarios WHERE cancion_id='.$cancion_id;
 				$result2 = mysqli_query($db, $query2) or die('Query error');
 				while ($row = mysqli_fetch_array($result2)) {
-					echo '<li>'.$row['id'].'</li>';
 					echo '<li>'.$row['comentario'].'</li>';
-					echo '<li>'.$row['usuario_id'].'</li>';
-					echo '<li>'.$row['cancion_id'].'</li>';
 				}
 					echo '<p>Añade un comentario</p>';
 					echo '<form action="/comment.php" method="post">';
