@@ -7,7 +7,7 @@
 			$cancion_id = $_POST['cancion_id'];
 			$comentario = $_POST['ncomentario'];
 
-			$query = "INSERT INTO tComentarios(comentario, usuario_id, cancion_id) VALUES ('".$comentario."', NULL, ".$cancion_id.")";
+			$query = "INSERT INTO tComentarios(comentario, usuario_id, cancion_id, fecha) VALUES ('".$comentario."', NULL, ".$cancion_id.", current_date())";
 
 			mysqli_query($db, $query) or die('Error');
 
