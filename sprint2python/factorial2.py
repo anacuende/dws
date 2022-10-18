@@ -6,7 +6,4 @@ def func_factorial2(n):
         while(n > 1): 
             factorial = factorial * n 
             n = n - 1
-        return factorial 
-
-n = int(input('Teclee número: '));
-print(func_factorial2(n));
+        return factorial
