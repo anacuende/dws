@@ -4,10 +4,15 @@
 <html>
 	<body>
 		<?php
+			session_start();
+			$user_id_a_insertar = 'NULL';
+			if (!empty($_SESSION['user_id'])) {
+				$user_id_a_insertar = $_SESSION['user_id'];
+			}
 			$cancion_id = $_POST['cancion_id'];
 			$comentario = $_POST['ncomentario'];
 
-			$query = "INSERT INTO tComentarios(comentario, usuario_id, cancion_id, fecha) VALUES ('".$comentario."', NULL, ".$cancion_id.", current_date())";
+			$query = "INSERT INTO tComentarios(comentario, cancion_id, fecha, usuario_id) VALUES ('".$comentario."', ".$cancion_id.", current_date(),".$user_id_a_insertar.")";
 
 			mysqli_query($db, $query) or die('Error');
 
