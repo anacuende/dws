@@ -1,10 +1,32 @@
 <html>
-	<head><meta charset="UTF-8"></head>
+	<head>
+		<meta charset="UTF-8">
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				document.getElementById("formulario").addEventListener('submit', validar_login);
+			});
+			function validar_login(evento){
+				evento.preventDefault();
+				var email = document.getElementById('email').value;
+				if (email.length == 0) {
+					alert('Tiene que escribir su e-mail');
+					return;
+				}
+				var contra = document.getElementById('contraseña').value;
+				if (contra == '') {
+					alert('Tiene que escribir su contraseña');
+					return;
+				}
+				this.submit();
+			}
+				
+		</script>
+	</head>
 	<body>
 		<h1>Login</h1>
-		<form action="login.php" method="post">
-			<input name="f_email" type="text" placeholder="e-mail"><br>
-			<input name="f_password" type="password" placeholder="Contraseña"><br>
+		<form action="login.php" method="post" name="f_login" id="formulario">
+			<input name="f_email" id="email" type="text" placeholder="e-mail"><br>
+			<input name="f_password" id="contraseña" type="password" placeholder="Contraseña"><br>
 			<input type="submit" value="Iniciar sesión">
 		</form>
 		<a href="/logout.php">Logout</a>
