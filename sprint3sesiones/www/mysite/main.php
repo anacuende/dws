@@ -2,6 +2,28 @@
 	$db = mysqli_connect('localhost', 'root', '1234', 'mysitedb') or die('Fail');
 ?>
 <html>
+	<style>
+		td {
+			text-decoration: none;
+			color: blue;
+		}
+		td:hover {
+			color: red;
+		}
+		td {
+			transition: color 0.8s linear 0.2s;
+		}
+		a {
+			text-decoration: underline;
+			color: blue;
+		}
+		a:hover {
+			color: red;
+		}
+		a {
+			transition: color 0.8s linear 0.2s;
+		}
+	</style>
 	<body>
 		<h1>Conexión establecida</h1>
 		<?php
