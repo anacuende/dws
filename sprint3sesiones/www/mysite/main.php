@@ -27,6 +27,8 @@
 	<body>
 		<h1>Conexión establecida</h1>
 		<?php
+			echo '<p><a href="cambiar_contra.php">Cambiar contraseña</a></p>';
+			echo '<p><a href="logout.php">Logout</a></p>';
 			// Lanzar una query
 			$query = 'SELECT * FROM tCanciones';
 			$result = mysqli_query($db, $query) or die('Query error');
