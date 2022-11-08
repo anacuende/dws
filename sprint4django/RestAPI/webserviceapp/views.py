@@ -3,7 +3,7 @@ from django.http import HttpResponse, JsonResponse
 
 from django.views.decorators.csrf import csrf_exempt
 from .models import Tcanciones, Tcomentarios
-
+from datetime import date
 import json
 
 def pagina_de_prueba(request):
@@ -32,6 +32,7 @@ def devolver_cancion_por_id(request, id_solicitado):
 		diccionario['comentario'] = fila_comentario_sql.comentario
 		diccionario['usuario_id'] = fila_comentario_sql.usuario_id
 		diccionario['cancion_id'] = fila_comentario_sql.cancion_id
+		diccionario['fecha'] = fila_comentario_sql.fecha
 		lista_comentarios.append(diccionario)
 	resultado = {
 		'id': cancion.id,
@@ -52,5 +53,6 @@ def guardar_comentario(request, cancion_id):
 	comentario = Tcomentarios()
 	comentario.comentario = json_peticion['nuevo_comentario']
 	comentario.cancion = Tcanciones.objects.get(id = cancion_id)
+	comentario.fecha = date.today()
 	comentario.save()
 	return JsonResponse({"status": "ok"})
